@@ -39,7 +39,7 @@
 
     <div class="loader-wrapper loader-light">
       <div class="loader"></div>
-    </div> 
+    </div>
 
     <?php include($prefix."static/navbar.php"); ?>
 
@@ -102,21 +102,12 @@
     </section>
   </body>
 
-    <?php //include($prefix."static/footer.php"); ?>
+    <?php include($prefix."static/footer.php"); ?>
     <?php include($prefix."static/script.php"); ?>
 
     <script>
       // Navbar active state
       $('#navHome').addClass('active');
-
-      // Animation on load
-      document.addEventListener("DOMContentLoaded", function(event) {
-        $(".loader").fadeOut('slow');
-        $(".loader-wrapper").fadeOut("slow");
-      //  $(".anim-1").addClass("animated fadeInLeft delayp10");
-       // $(".anim-2").addClass("animated fadeInUp delayp12");
-        //$(".anim-3").addClass("animated fadeInUp delayp14");  
-      });
 
     </script>
 

@@ -90,7 +90,7 @@
 /* Color
 -------------------------------------------------- */
 .text-gray, .cl-gray {
-  color: $gray-300; 
+  color: $gray-300;
 }
 
 
@@ -361,6 +361,61 @@ label {font-size: .9rem;}
   }
 }
 
+@include media-breakpoint-down(md) {
+  .fixed-top {
+   // height: 100vh;
+  }
+  .navbar-collapse {
+    overflow-y: scroll;
+    max-height: 100vh;
+    &.show {
+      padding-bottom: 80px;
+    }
+  }
+  .navbar-toggler {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+  }
+  .toggler-icon {
+    height: 2px;
+    border-radius: 10px;
+    display: block;
+    background: white;
+   // margin: 6px;
+    -webkit-transform-origin: 22px;
+    -moz-transform-origin: 22px;
+    -ms-transform-origin: 22px;
+    transform-origin: 22px;
+    -webkit-transition: -webkit-transform .2s;
+    -moz-transition: -moz-transform .2s;
+    -o-transition: -o-transform .2s;
+    transition: transform .2s;
+    width: 19px!important;
+      &#iconBar-1.animate {
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+      &#iconBar-2{
+        margin-top: 7px!important;
+        margin-bottom: 7px!important;
+        &.animate {
+          opacity: 0 !important;
+        }
+      }
+      &#iconBar-3.animate {
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+    }
+  }
+
+
 // To make the content after navbar fixed top placed right after the navbar
 .navbar.fixed-top {
   & + * {
@@ -481,9 +536,9 @@ label {font-size: .9rem;}
 }
 
 /* ==========================================================================
-    Gallery   
+    Gallery
    ========================================================================== */
-   
+
 .img-container {
   overflow: hidden;
 }

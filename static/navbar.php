@@ -4,17 +4,19 @@
       <img src="<?php echo $prefix;?>assets/img/brand/logo_anti-light.svg" alt="Logo">
     </a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="toggler-icon" id="iconBar-1"></span>
+      <span class="toggler-icon" id="iconBar-2"></span>
+      <span class="toggler-icon" id="iconBar-3"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="<?php echo $prefix;?>index.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="<?php echo $prefix;?>index.php">Our Method</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Components
+            International Exam<br/>Preparation
           </a>
           <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
             <small class="dropdown-header text-muted">Common</small>
@@ -38,7 +40,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Base Designs
+            Public Classes
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="<?php echo $prefix;?>base/five">Five</a>
@@ -47,7 +49,46 @@
             <a class="dropdown-item" href="<?php echo $prefix;?>base/Forte">Forte</a>
           </div>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Teacher Training
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="<?php echo $prefix;?>base/five">Five</a>
+            <a class="dropdown-item" href="<?php echo $prefix;?>base/foster">Foster</a>
+            <a class="dropdown-item" href="<?php echo $prefix;?>base/monstore">Monstore</a>
+            <a class="dropdown-item" href="<?php echo $prefix;?>base/Forte">Forte</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo $prefix;?>index.php">Corporate Training</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo $prefix;?>index.php">Location</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo $prefix;?>index.php">Promo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo $prefix;?>index.php">Contact Us</a>
+        </li>
       </ul>
+      <div class="row hidden-md-up">
+        <div class="col-6">
+          Like us on Facebook
+        </div>
+        <div class="col-6">
+          Follow us on Twitter
+        </div>
+        <div class="col-6">
+          Follow us on Insta
+        </div>
+        <div class="col-6">
+          Subscribe to Our Channel
+        </div>
+      </div>
+
+
     </div>
   </div>
 </nav>

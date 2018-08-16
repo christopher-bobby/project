@@ -18,14 +18,17 @@ $(window).scroll(function() {
 
 // Trigger animation on scroll based on viewport
 $(document).ready(function() {
+  $('.navbar-toggler').click(function(){
+    $('.toggler-icon').toggleClass('animate');
+  });
   $('.vp-fadeinleft').viewportChecker({
       classToAdd: 'visible animated fadeInLeft',
       offset: 100
-  });   
+  });
   $('.vp-fadeinright').viewportChecker({
       classToAdd: 'visible animated fadeInRight',
       offset: 100
-  });  
+  });
   $('.vp-fadein').viewportChecker({
       classToAdd: 'visible animated fadeIn',
       offset: 100
@@ -41,7 +44,7 @@ $(document).ready(function() {
   $('.vp-slideinleft').viewportChecker({
     classToAdd: 'visible animated slideInLeft',
     offset: 100
-  });  
+  });
   $('.vp-slideinright').viewportChecker({
     classToAdd: 'visible animated slideInRight',
     offset: 100
@@ -53,11 +56,11 @@ $(document).ready(function() {
   $('.vp-zoomindown').viewportChecker({
     classToAdd: 'visible animated zoomInDown',
     offset: 100
-  });  
+  });
   $('.vp-rotatein').viewportChecker({
     classToAdd: 'visible animated rotateIn',
     offset: 100
-  });  
+  });
   $('.vp-slideindown').viewportChecker({
     classToAdd: 'visible animated slideInDown',
     offset: 100
@@ -65,7 +68,7 @@ $(document).ready(function() {
   $('.parallax-window').parallax({parallax: 'scroll'});
   $(".form-control-datepicker").datepicker();
 
-}); 
+});
 
 
 // Animation on scroll
@@ -73,18 +76,18 @@ $(document).ready(function() {
     $(".item1").each(function() {
       var a = $(this).offset().top,
           d = $(window).scrollTop();
-        d + 600 > a && ($(this).addClass("animated fadeInUp"), 
-        $(".item2").addClass("animated fadeInUp delayp2"), 
-        $(".item3").addClass("animated fadeInLeft delayp4"), 
-        $(".item4").addClass("animated fadeInLeft delayp6"), 
+        d + 600 > a && ($(this).addClass("animated fadeInUp"),
+        $(".item2").addClass("animated fadeInUp delayp2"),
+        $(".item3").addClass("animated fadeInLeft delayp4"),
+        $(".item4").addClass("animated fadeInLeft delayp6"),
         $(".item5").addClass("animated fadeInLeft delayp8"))
-    }), 
+    }),
     $(".item6").each(function() {
       var a = $(this).offset().top,
           d = $(window).scrollTop();
-        d + 600 > a && ($(this).addClass("animated fadeInUp"), 
-        $(".item7").addClass("animated fadeInUp delayp2"), 
-        $(".item8").addClass("animated fadeInUp delayp4"), 
+        d + 600 > a && ($(this).addClass("animated fadeInUp"),
+        $(".item7").addClass("animated fadeInUp delayp2"),
+        $(".item8").addClass("animated fadeInUp delayp4"),
         $(".item9").addClass("animated fadeInLeft delayp6"))
     })
   })
