@@ -1,0 +1,362 @@
+/* ==========================================================================
+   Reboot.scss Overrider
+   ========================================================================== */
+
+// Common reboot
+a {@include transition($transition-base);}
+button:focus {outline: 0;}
+
+
+/* ==========================================================================
+   Animation.css Overrider
+   ========================================================================== */
+
+// FadeInUp / Right / Down / Left Fixes
+@-webkit-keyframes fadeInUp {0% {opacity: 0; -webkit-transform: translateY(20px); transform: translateY(20px); } 100% {opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); } } @keyframes fadeInUp {0% {opacity: 0; -webkit-transform: translateY(20px); -ms-transform: translateY(20px); transform: translateY(20px); } 100% {opacity: 1; -webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0); } }
+@-webkit-keyframes fadeInRight {0% {opacity: 0; -webkit-transform: translateX(20px); transform: translateX(20px); } 100% {opacity: 1; -webkit-transform: translateX(0); transform: translateX(0); } } @keyframes fadeInRight {0% {opacity: 0; -webkit-transform: translateX(20px); -ms-transform: translateX(20px); transform: translateX(20px); } 100% {opacity: 1; -webkit-transform: translateX(0); -ms-transform: translateX(0); transform: translateX(0); } }
+@-webkit-keyframes fadeInDown {0% {opacity: 0; -webkit-transform: translateY(-20px); transform: translateY(-20px); } 100% {opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); } } @keyframes fadeInDown {0% {opacity: 0; -webkit-transform: translateY(-20px); -ms-transform: translateY(-20px); transform: translateY(-20px); } 100% {opacity: 1; -webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0); } }
+@-webkit-keyframes fadeInLeft {0% {opacity: 0; -webkit-transform: translateX(-20px); transform: translateX(-20px); } 100% {opacity: 1; -webkit-transform: translateX(0); transform: translateX(0); } } @keyframes fadeInLeft {0% {opacity: 0; -webkit-transform: translateX(-20px); -ms-transform: translateX(-20px); transform: translateX(-20px); } 100% {opacity: 1; -webkit-transform: translateX(0); -ms-transform: translateX(0); transform: translateX(0); } }
+
+// Delays
+$class-delay: delayp;
+@for $i from 1 through 20 { 
+  .#{$class-delay}#{$i} {
+    animation-delay: 0s + $i*0.1;
+    -moz-animation-delay: 0s + $i*0.1; 
+    -webkit-animation-delay: 0s + $i*0.1; 
+    -o-animation-delay: 0s + $i*0.1; 
+    transition-delay: 0s + $i*0.1; 
+  }
+}
+
+// Viewport animation
+.vp-fadein, .vp-fadeinup, .vp-fadeinright, .vp-fadeindown, .vp-fadeinleft, 
+.vp-slideinup, .vp-slideinright, .vp-slideindown, .vp-slideinleft,
+.vp-zoomin, .vp-zoominup, .vp-zoominright, .vp-zoomindown, .vp-zoominleft, 
+.vp-rotatein {
+  opacity: 0;
+}
+
+// Make viewport animation works
+.animated {opacity: 0;}
+
+// Add opacity 1 on top up visibility: visible for animation
+.visible {opacity: 1;}
+
+
+/* ==========================================================================
+   Loader
+   ========================================================================== */
+
+// Loader basic styling
+.loader-wrapper {
+  position: fixed;
+  @include position(0);
+  z-index: 99999999999;
+  height: 100%;
+  overflow: hidden;
+}
+.loader {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear;
+  animation-iteration-count: infinite;
+  margin: -15px;
+  position: absolute;
+  @include position(50%);
+}
+.loader-light {
+  background: $white;
+  .loader {
+    border: 5px solid $gray-100;
+    border-top: 5px solid $gray-400;
+  }
+}
+.loader-dark {
+  background: $black;
+  .loader {
+    border: 5px solid $gray-800;
+    border-top: 5px solid $white;
+  }
+}
+@-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin {0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+
+/* ==========================================================================
+   Scroll Hint
+   ========================================================================== */
+
+.scroll-hint {
+  position: absolute;
+  display: block;
+  height: 75px;
+  width: 200px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  img {
+    position: absolute;
+    width: 50px;
+    margin-left: -25px;
+    left: 50%;
+    bottom: 0;
+    display: inline-block;
+    animation: arrow_move 1s linear;
+    animation-iteration-count: infinite;
+  }
+  &.bottom-0 {bottom: 0;}
+  &.bottom-25px {bottom: 25px;}
+  &.scroll-hint-w-text {
+    p {
+      text-align: center;
+      display: block;
+      font-size: $small-font-size;
+      color: rgba(255,255,255,.5);
+      font-weight: 200;
+      margin-top: 55px;
+      margin-bottom: 0;
+      @include transition($transition-base);
+    }
+    &:hover {
+      p {color: rgba(255,255,255,.75);}
+    }
+  }
+}
+@-webkit-keyframes arrow_move {0% {opacity: 1; bottom: 100px; } 50% {opacity: 0; bottom: 96px; } 90% {opacity: 0; bottom: 100px; } 100% {opacity: 1; bottom: 100px; } }
+@-moz-keyframes arrow_move {0% {opacity: 1; bottom: 48px; } 50% {opacity: 0; bottom: 24px; } 90% {opacity: 0; bottom: 48px; } 100% {opacity: 1; bottom: 48px; } }
+@-o-keyframes arrow_move {0% {opacity: 1; bottom: 48px; } 50% {opacity: 0; bottom: 24px; } 90% {opacity: 0; bottom: 48px; } 100% {opacity: 1; bottom: 48px; } }
+@keyframes arrow_move {0% {opacity: 1; bottom: 48px; } 50% {opacity: 0; bottom: 24px; } 90% {opacity: 0; bottom: 48px; } 100% {opacity: 1; bottom: 48px; } }
+
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+// Reduce opacity on link while on hover
+.link-opacity {
+  display: block;
+  @include transition($transition-base);
+  &:hover {
+    opacity: .75;
+  }
+}
+
+// Add box shadow effect while on hover
+.link-box-shadow {
+  display: block;
+  box-shadow: $box-shadow-sm;
+  transition: all 0.2s ease-in-out; }
+  @media screen and (prefers-reduced-motion: reduce) {
+    .link-box-shadow {
+      transition: none; } }
+  .link-box-shadow:hover {
+    box-shadow: $box-shadow; }
+
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* ==========================================================================
+   Grid
+   ========================================================================== */
+
+// Default row overrider
+.row {
+  margin-right: -10px; /* Originally 15 */
+  margin-left: -10px; /* Originally 15 */
+}
+.row > [class^="col"] {
+  padding-right: 10px; /* Originally 15 */
+  padding-left: 10px; /* Originally 15 */
+}
+
+// Row / col variations
+.row-n {margin-right: 0px; margin-left: 0px; & > [class^="col"] {padding-right: 0px; padding-left: 0px; } }
+.row-5 {margin-right: -5px; margin-left: -5px; & > [class^="col"] {padding-right: 5px; padding-left: 5px; } }
+.row-10 {margin-right: -5px; margin-left: -5px; & > [class^="col"] {padding-right: 5px; padding-left: 5px; } }
+.row-15 {margin-right: -15px; margin-left: -15px; & > [class^="col"] {padding-right: 15px; padding-left: 15px; } }
+.row-20 {margin-right: -20px; margin-left: -20px; & > [class^="col"] {padding-right: 20px; padding-left: 20px; } }
+.row-25 {margin-right: -25px; margin-left: -25px; & > [class^="col"] {padding-right: 25px; padding-left: 25px; } }
+.row-30 {margin-right: -30px; margin-left: -30px; & > [class^="col"] {padding-right: 30px; padding-left: 30px; } }
+
+
+/* ==========================================================================
+   Background
+   ========================================================================== */
+
+/* Enter style here
+
+
+/* ==========================================================================
+   Position
+   ========================================================================== */
+
+// Background feature position
+.bg-feature {
+  height: 200px;
+  @include media-breakpoint-up(md) {
+    position: absolute; 
+    height: 100%;
+    width: 50%; 
+  }
+  &-left {left: 0%;}
+  &-right {left: 50%;}
+}
+
+// Vertically & Horizontally center. Note: parent must have position: relative
+.center-both {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include prefix(transform, translate(-50%, -50%), 'webkit' 'ms');
+}
+.center-md-both {
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include prefix(transform, translate(-50%, -50%), 'webkit' 'ms');
+  }
+}
+.center-sm-down-both {
+  @include media-breakpoint-down(sm) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include prefix(transform, translate(-50%, -50%), 'webkit' 'ms');
+  }
+}
+
+
+/* ==========================================================================
+   Box Shadow
+   ========================================================================== */
+
+// Box shadow main
+.box-shadow {box-shadow: $box-shadow-sm;
+  &:hover {box-shadow: $box-shadow;}
+}
+
+
+/* ==========================================================================
+   Sizing
+   ========================================================================== */
+
+// Custom height, with option to be applied only on MD
+@include media-breakpoint-up(md) {
+  .h-md-50px { height: 50px; }
+  .h-md-100px { height: 100px; }
+  .h-md-150px { height: 150px; }
+  .h-md-200px { height: 200px; }
+}
+
+
+/* ==========================================================================
+   Spacing
+   ========================================================================== */
+
+// Padding main, commonly used for sections
+.py-main,
+.section-main {
+  padding-top: ($spacer * 2.5);
+  padding-bottom: ($spacer * 2.5);
+  @include media-breakpoint-up(md) {
+    padding-top: ($spacer * 5);
+    padding-bottom: ($spacer * 5);
+  }
+}
+
+// Padding box, commonly used for box layout
+.p-box {
+  padding: ($spacer * 1);
+  @include media-breakpoint-up(md) {
+    padding: ($spacer * 2);
+  }
+}
+
+// Margin bottom with media query for sm-down
+@include media-breakpoint-down(sm) {
+  .mt-sm-down-1 {margin-top: ($spacer * .25);} 
+  .mt-sm-down-2 {margin-top: ($spacer * .5);}
+  .mt-sm-down-3 {margin-top: ($spacer * .1);}
+  .mt-sm-down-4 {margin-top: ($spacer * 2);}
+  .mt-sm-down-5 {margin-top: ($spacer * 3);}
+  .mb-sm-down-1 {margin-bottom: ($spacer * .25);} 
+  .mb-sm-down-2 {margin-bottom: ($spacer * .5);}
+  .mb-sm-down-3 {margin-bottom: ($spacer * .1);}
+  .mb-sm-down-4 {margin-bottom: ($spacer * 2);}
+  .mb-sm-down-5 {margin-bottom: ($spacer * 3);}
+  .px-sm-down-0 {padding-left: 0px !important; padding-right: 0px !important;}
+  .py-sm-down-0 {padding-top: 0px !important; padding-bottom: 0px !important;}
+}
+
+
+/* ==========================================================================
+   Visibility
+   ========================================================================== */
+
+// Fallback method for [hidden]
+.hidden {
+  display: none !important;
+}
+
+
+/* ==========================================================================
+   Icons
+   ========================================================================== */
+
+// Make angle right size appear normal on button
+a > .fa-angle-right {
+  margin-left: .25rem;
+  height: .9em;
+}
+
+
+/* ==========================================================================
+   Text
+   ========================================================================== */
+
+// Add custom small size from 70% - 90%
+.font-size-xs {font-size: 70%;}
+.font-size-sm {font-size: 80%;} // Thhis one is the same as small / .small
+.font-size-md {font-size: 90%;}
+
+// Add custom small size from 110% - 120%
+.font-size-lg {font-size: 110%;}
+.font-size-xl {font-size: 120%;}
+
+// Custom text style
+.text-uppercase-custom {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.text-italic {
+  font-style: italic; 
+}
+
+/* ==========================================================================
+   Well Code
+   ========================================================================== */
+
+.well-code {
+  background-color: #292c35;
+  color: #fff;
+  min-height: 20px;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  .nt {color: #2f6f9f;}
+  .na {color: #4f9fcf;}
+  .n {color: #d44950;}
+  xmp {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+}
+
